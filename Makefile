@@ -17,7 +17,7 @@ OBJ_DIR := ./obj/
 LIB_DIR := ./lib/
 INK_DIR := ./ink/
 
-SRC := main.c
+SRC := main.c mandelbrot.c julia.c burning_ship.c draw.c
 
 OBJ = $(addprefix $(OBJ_DIR), $(SRC:.c=.o))
 

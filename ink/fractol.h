@@ -16,22 +16,29 @@
 # include "libft.h"
 # include <mlx.h>
 # include <math.h>
-# define WIDTH 1000
-# define HEIGHT 900
+# define WIDTH 1300
+# define HEIGHT 1000
 # define KEY_LEFT 123
 # define KEY_RIGHT 124
 # define KEY_UP 126
+# define KEY_DOWN 125
 # define KEY_PLUS 69
 # define KEY_MINUS 78
-// # define DEFOLT_COLOR 0xffffff
-// # define COLOR1 0x00ff7f
-// # define COLOR2 0xff8c00
-// # define COLOR3 0xff0000
-// # define COLOR4 0x8b0000
+# define IT_PLUS 24
+# define IT_MINUS 27
+# define KEY_RETURN 36
 # define KEY_U 91
 # define KEY_D 84
 # define KEY_L 86
 # define KEY_R 88
+
+enum			e_type
+{
+	MAN,
+	JUL,
+	SHIP
+};
+
 typedef struct	s_init
 {
 	void		*mlx_ptr;
@@ -40,12 +47,37 @@ typedef struct	s_init
 	char		*addr;
 }				t_init;
 
-typedef struct s_fr
+typedef struct	s_j
+{
+	double		cim;
+	double		cre;
+	double		newre;
+	double		newim;
+	double		oldre;
+	double		oldim;
+	double		movex;
+	double		movey;
+	double		zoom;
+}				t_j;
+
+typedef struct	s_fr
 {
 	t_init		init;
+	t_j			jul;
+	t_j			man;
+	t_j			ship;
+	enum e_type	type;
+	int			maxiter;
 	int			bpp;
 	int			endian;
 	int			size_line;
 }				t_fr;
+
+void	man_rot(t_j *hd, t_fr *head);
+void	ft_pixel_put(t_fr *head, int x, int y, int color);
+int		which_color(int i, int maxiter);
+void	julia(t_j *hd, t_fr *head);
+void	ship(t_j *ship, t_fr *hd);
+void	draw_fractol(t_fr *head);
 
 #endif
