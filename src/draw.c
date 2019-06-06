@@ -17,7 +17,7 @@ int		which_color(int i, int maxiter)
 	double	t;
 	int		color;
 
-	t = (double)i/(double)maxiter;
+	t = (double)i / (double)maxiter;
 	color = (((int)((9 * (1 - t) * t * t * t * 255)) << 16) |
 				(((int)(15 * (1 - t) * (1 - t) * t * t * 255)) << 8)) |
 							(int)(8.5 * (1 - t) * (1 - t) * (1 - t) * t * 255);
@@ -37,12 +37,13 @@ void	ft_pixel_put(t_fr *head, int x, int y, int color)
 	}
 }
 
-void	draw_fractol(t_fr *head)
+void	*draw_fractol(t_fr *head)
 {
 	if (head->type == JUL)
-		julia(&head->jul, head);
+		julia(&head->jul, head, 0);
 	else if (head->type == MAN)
-		man_rot(&head->man, head);
+		man_rot(&head->man, head, head->ystart - 1, 0);
 	else
-		ship(&head->ship, head);
+		ship(&head->ship, head, head->ystart - 1, 0);
+	return (NULL);
 }

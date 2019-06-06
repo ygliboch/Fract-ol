@@ -12,19 +12,30 @@
 
 #include "fractol.h"
 
-void	julia(t_j *j, t_fr *hd)
+int		move_julia(int x, int y, t_fr *head)
+{
+	if (head->type == JUL && head->jul.p == 0)
+	{
+		head->jul.cre = (((double)y * 2) / HEIGHT) - 1;
+		head->jul.cim = (((double)x * 2) / WIDTH) - 1;
+		update(head);
+	}
+	return (0);
+}
+
+void	julia(t_j *j, t_fr *hd, int i)
 {
 	int		x;
 	int		y;
-	int		i;
 
-	y = -1;
-	while (++y < HEIGHT)
+	y = hd->ystart - 1;
+	while (++y < hd->yend)
 	{
-		x = -1;
-		while (++x < WIDTH)
+		x = hd->xstart - 1;
+		while (++x < hd->xend)
 		{
-			j->newre = 1.5 * (x - WIDTH / 2) / (0.5 * j->zoom * WIDTH) + j->movex;
+			j->newre = 1.5 * (x - WIDTH / 2) /
+			(0.5 * j->zoom * WIDTH) + j->movex;
 			j->newim = (y - HEIGHT / 2) / (0.5 * j->zoom * HEIGHT) + j->movey;
 			i = -1;
 			while (++i < hd->maxiter)
@@ -39,6 +50,4 @@ void	julia(t_j *j, t_fr *hd)
 			ft_pixel_put(hd, x, y, which_color(i, hd->maxiter));
 		}
 	}
-	mlx_put_image_to_window(hd->init.mlx_ptr, hd->init.win_ptr,
-									hd->init.img_ptr, 0, 0);
 }

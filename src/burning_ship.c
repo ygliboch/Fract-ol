@@ -12,35 +12,31 @@
 
 #include "fractol.h"
 
-void	ship(t_j *ship, t_fr *hd)
+void	ship(t_j *sp, t_fr *hd, int y, int x)
 {
-	int		x;
-	int		y;
 	int		i;
 
-	y = -1;
-	while (++y < HEIGHT)
+	while (++y < hd->yend && (x = hd->xstart - 1))
 	{
-		x = -1;
-		while (++x < WIDTH)
+		while (++x < hd->xend)
 		{
-			ship->cre = (1.5 * (x - WIDTH / 2)) / (0.5 * ship->zoom * WIDTH) + ship->movex;
-			ship->cim = (y - HEIGHT / 2) / (0.5 * ship->zoom * HEIGHT) + ship->movey;
-			ship->newre = 0;
-			ship->newim = 0;
+			sp->cre = (1.5 * (x - WIDTH / 2)) /
+			(0.5 * sp->zoom * WIDTH) + sp->movex;
+			sp->cim = (y - HEIGHT / 2) / (0.5 * sp->zoom * HEIGHT) + sp->movey;
+			sp->newre = 0;
+			sp->newim = 0;
 			i = -1;
 			while (++i < hd->maxiter)
 			{
-				ship->oldre = ship->newre;
-				ship->oldim = ship->newim;
-				ship->newre = ship->oldre * ship->oldre - ship->oldim * ship->oldim + ship->cre;
-				ship->newim = fabs(2 * ship->oldre * ship->oldim) + ship->cim;
-				if ((ship->newre * ship->newre + ship->newim * ship->newim) > 4)
+				sp->oldre = sp->newre;
+				sp->oldim = sp->newim;
+				sp->newre = sp->oldre * sp->oldre
+				- sp->oldim * sp->oldim + sp->cre;
+				sp->newim = fabs(2 * sp->oldre * sp->oldim) + sp->cim;
+				if ((sp->newre * sp->newre + sp->newim * sp->newim) > 4)
 					break ;
 			}
 			ft_pixel_put(hd, x, y, which_color(i, hd->maxiter));
 		}
 	}
-	mlx_put_image_to_window(hd->init.mlx_ptr, hd->init.win_ptr,
-										hd->init.img_ptr, 0, 0);
 }

@@ -12,39 +12,31 @@
 
 #include "fractol.h"
 
-void	man_rot(t_j *man, t_fr *hd)
+void	man_rot(t_j *mn, t_fr *hd, int y, int x)
 {
-	int		y;
-	int		x;
 	double	pr;
 	double	pi;
 	int		i;
 
-	y = -1;
-	while (++y < HEIGHT)
+	while (++y < hd->yend && (x = hd->xstart - 1))
 	{
-		x = -1;
-		while (++x < WIDTH)
+		while (++x < hd->xend)
 		{
-			pr = 1.5 * (x - WIDTH / 2) / (0.5 * man->zoom * WIDTH) + man->movex;
-			pi = (y - HEIGHT / 2) / (0.5 * man->zoom * HEIGHT) + man->movey;
-			man->newre = 0;
-			man->newim = 0;
-			man->oldre = 0;
-			man->newre = 0;
+			pr = 1.5 * (x - WIDTH / 2) / (0.5 * mn->zoom * WIDTH) + mn->movex;
+			pi = (y - HEIGHT / 2) / (0.5 * mn->zoom * HEIGHT) + mn->movey;
+			mn->newre = 0;
+			mn->newim = 0;
 			i = -1;
 			while (++i < hd->maxiter)
 			{
-				man->oldre = man->newre;
-				man->oldim = man->newim;
-				man->newre = man->oldre * man->oldre - man->oldim * man->oldim + pr;
-				man->newim = 2 * man->oldre * man->oldim + pi;
-				if ((man->newre * man->newre + man->newim *man->newim) > 4)
+				mn->oldre = mn->newre;
+				mn->oldim = mn->newim;
+				mn->newre = mn->oldre * mn->oldre - mn->oldim * mn->oldim + pr;
+				mn->newim = 2 * mn->oldre * mn->oldim + pi;
+				if ((mn->newre * mn->newre + mn->newim * mn->newim) > 4)
 					break ;
 			}
 			ft_pixel_put(hd, x, y, which_color(i, hd->maxiter));
 		}
 	}
-	mlx_put_image_to_window(hd->init.mlx_ptr, hd->init.win_ptr,
-										hd->init.img_ptr, 0, 0);
 }
