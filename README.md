@@ -62,11 +62,10 @@ make
   <b>Julia set</b>
 </p>
 
-![Julia Set](https://github.com/ygliboch/Fract-ol/blob/master/Skrinshots/Screen%20Shot%202019-06-06%20at%204.07.27%20PM.png)
-![Julia Set](https://github.com/ygliboch/Fract-ol/blob/master/Skrinshots/Screen%20Shot%202019-06-06%20at%204.08.39%20PM.png)
-
+![julia](https://github.com/ygliboch/Fract-ol/blob/master/Skreenshots/Screen%20Shot%202019-06-06%20at%204.07.27%20PM.png)
+![julia](https://github.com/ygliboch/Fract-ol/blob/master/Skreenshots/Screen%20Shot%202019-06-06%20at%204.08.39%20PM.png)
 <p align="center">
   <b>Burning Ship</b>
 </p>
 
-![Ship](https://github.com/ygliboch/Fract-ol/blob/master/Skrinshots/Screen%20Shot%202019-06-06%20at%204.10.04%20PM.png)
+![Ship](https://github.com/ygliboch/Fract-ol/blob/master/Skreenshots/Screen%20Shot%202019-06-06%20at%204.10.04%20PM.png)
