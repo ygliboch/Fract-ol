@@ -6,7 +6,7 @@
 /*   By: yhliboch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/31 17:13:42 by yhliboch          #+#    #+#             */
-/*   Updated: 2019/05/31 17:13:44 by yhliboch         ###   ########.fr       */
+/*   Updated: 2019/06/06 16:24:29 by yhliboch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ int		mause_close(void *mlx_ptr)
 	return (1);
 }
 
-void	error(char *str)
+void	error(void)
 {
-	ft_printf("%s", str);
+	ft_printf("Usage: ./fractol [fractol_name]\n->Julia\n->Mandelbrot\n->Ship\n");
 	exit(0);
 }
 
@@ -62,7 +62,7 @@ int		main(int argc, char **argv)
 	t_fr	head;
 
 	if (argc != 2)
-		error("Usage: ./fractol [fractol_name]\n->Julia\n->Mandelbrot\n->Ship\n");
+		error();
 	if (ft_strequ(argv[1], "Julia"))
 		head.type = JUL;
 	else if (ft_strequ(argv[1], "Mandelbrot"))
@@ -70,7 +70,7 @@ int		main(int argc, char **argv)
 	else if (ft_strequ(argv[1], "Ship"))
 		head.type = SHIP;
 	else
-		error("Usage: ./fractol [fractol_name]\n->Julia\n->Mandelbrot\n->Ship\n");
+		error();
 	start(&head);
 	mlx_expose_hook(head.init.win_ptr, update, &head);
 	mlx_hook(head.init.win_ptr, 4, 1L << 2, zoom, &head);
