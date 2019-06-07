@@ -23,13 +23,13 @@ void	next_fractol(t_fr *head)
 int		key_two(int keycode, t_fr *head, t_j *fr)
 {
 	if (keycode == KEY_LEFT)
-		fr->movex += 0.05;
+		fr->movex += 0.05 / fr->zoom;
 	if (keycode == KEY_RIGHT)
-		fr->movex -= 0.05;
+		fr->movex -= 0.05 / fr->zoom;
 	if (keycode == KEY_UP)
-		fr->movey += 0.05;
+		fr->movey += 0.05 / fr->zoom;
 	if (keycode == KEY_DOWN)
-		fr->movey -= 0.05;
+		fr->movey -= 0.05 / fr->zoom;
 	if (keycode == IT_PLUS)
 		head->maxiter += 10;
 	if (keycode == IT_MINUS)

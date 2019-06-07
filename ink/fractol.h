@@ -17,8 +17,8 @@
 # include <mlx.h>
 # include <math.h>
 # include <pthread.h>
-# define WIDTH		1300
-# define HEIGHT		1000
+# define WIDTH		1050
+# define HEIGHT		700
 # define KEY_LEFT	123
 # define KEY_RIGHT	124
 # define KEY_UP		126
