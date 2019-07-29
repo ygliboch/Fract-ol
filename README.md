@@ -15,8 +15,7 @@ This project’s goal is to create a small fractal exploration program.
 
 How to start:
 ```bash
-git clone https://github.com/ygliboch/Fract-ol.git && cd Fract-ol
-make
+git clone https://github.com/ygliboch/Fract-ol.git && cd Fract-ol && make
 ./fractol
 ```
 <table width="100%">
