@@ -62,7 +62,9 @@ make
   <b>Julia set</b>
 </p>
 
-![julia](https://github.com/ygliboch/Fract-ol/blob/master/Screenshots/ezgif.com-video-to-gif.gif)
+<p align="center">
+  ![julia](https://github.com/ygliboch/Fract-ol/blob/master/Screenshots/ezgif.com-video-to-gif.gif)
+</p>
 ![julia](https://raw.githubusercontent.com/ygliboch/Fract-ol/master/Screenshots/Screen%20Shot%202019-06-06%20at%204.07.27%20PM.png)
 ![julia](https://raw.githubusercontent.com/ygliboch/Fract-ol/master/Screenshots/Screen%20Shot%202019-06-06%20at%204.08.39%20PM.png)
 <p align="center">
